@@ -1,27 +1,19 @@
-/* h1 {
-    text-align: center;
+:root {
+	--grid-cols: 0; /* number of columns in grid*/
+	--grid-rows: 0;	/* number of rows in grid */
+	--cell-size: 0px; /* width and height of square cell in grid */
 }
 
 #container {
-	position: relative;
-	top: 0;
-	left: 0;
-	top: 30px;
-	outline:2px solid #000;
-	font-size: 0;
-	margin:auto;
-	height: 800px;
-	width: 80%;
-	padding: 0;
-	border: none;
+	margin: auto;
+	display: grid;
+	height: 960px;
+	width: 960px; 
+	grid-template-rows: repeat(var(--grid-rows), var(--cell-size)); /* create "x" amount of rows based off of variable --grid--rows */
+	grid-template-columns: repeat(var(--grid-cols), var(--cell-size)); /* create "x" amount of columns based off of variable --grid--cols */
+	border: solid; /* border of grid */
 }
-
-.cell {
-	position: relative;
-	top: 0;
-	left: 0;
-	width: 30px;
-	height: 30px;
-	background-color: white;
-	border: 2px solid black;
-} */
+  
+.grid-item {
+	border: 1px solid #ddd; /* border of cell */
+}

@@ -1,12 +1,21 @@
-const container = document.querySelector('#container');
+const container = document.getElementById("container");
 
-container.backgroundColor = 'red';
-container.border = '1px solid black';
-container.width = '100px';
-container.height = '100px';
 
-const content = document.createElement('div');
-content.classList.add('content');
-content.textContent = 'This is the glorious text-content!';
+const width = window.innerWidth;
 
-container.appendChild(container);
+function makeRows(rows, cols) 
+{
+    var cellSizeNum = 960 / rows; //creates size of cell
+    var cellSizeStr = cellSizeNum + "px"; // cell size in string-pixel form
+
+    container.style.setProperty('--cell-size', cellSizeStr); 
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
+    for (c = 0; c < (rows * cols); c++) 
+    {
+        let cell = document.createElement("div");
+        container.appendChild(cell).className = "grid-item";
+    }
+}
+
+makeRows(46, 46);
